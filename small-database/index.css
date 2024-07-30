@@ -1,0 +1,146 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap);
+
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 14px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+body,
+input,
+button {
+    font-family: 'Roboto Mono', monospace;
+    background: #DCDCDC;
+    color: #333;
+    user-select: none;
+}
+
+
+h1 {
+    font-size: 32px;
+    text-align: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    &>div {
+        border-top: 1px solid #333;
+        padding: 7px 21px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &>:first-child {
+        border-top: none;
+    }
+}
+
+.edit {
+    display: flex;
+    gap: 21px;
+    align-items: center;
+    font-size: medium;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 14px;
+    font-size: inherit;
+    padding: 4px 10px;
+}
+
+button {
+    border: none;
+    outline: none;
+    font-size: inherit;
+    background: #C0C0C0;
+    padding: 7px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    color: #333;
+}
+
+
+.none {
+    display: none !important;
+}
+
+
+/* animation */
+.draw-border {
+    box-shadow: inset 0 0 0 4px inherit;
+    color: inherit;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+}
+
+.draw-border::before,
+.draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+.draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+}
+
+.draw-border:hover {
+    color: inherit;
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
+    border-color: #58afd1;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+
+.draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+}
+
+.btn:focus {
+    outline: 2px dotted inherit;
+}
